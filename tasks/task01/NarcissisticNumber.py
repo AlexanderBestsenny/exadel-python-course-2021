@@ -8,4 +8,4 @@ for k in range(1, 1001):
     for i in listOfNumbers:
         sumOfDigits += i ** len(listOfNumbers)
     if sumOfDigits == k:
-        print("{}, n={}".format(k, len(listOfNumbers)))
+        print(f"k={k}, n={len(listOfNumbers)}")
