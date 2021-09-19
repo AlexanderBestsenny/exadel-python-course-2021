@@ -14,16 +14,13 @@ while num != 3:
         listInput = input("Enter base and height: ").split()
         if len(listInput) != 2:
             continue
-        base = int(listInput[0])
-        height = int(listInput[1])
+        base, height = map(int, listInput)
         print(f"Area is: {base * height / 2:.2f}")
     elif num == 2:
         listInput = input("Enter 2 sides and angle(degrees) between them: ").split()
         if len(listInput) != 3:
             continue
-        sideA = int(listInput[0])
-        sideB = int(listInput[1])
-        angle = int(listInput[2])
+        sideA, sideB, angle = map(int, listInput)
         result = sideA * sideB * math.sin(math.radians(angle)) / 2
         print(f"Area is: {result:.2f}")
 
