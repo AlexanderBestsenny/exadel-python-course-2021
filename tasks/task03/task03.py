@@ -20,3 +20,4 @@ print(f"{'word':15}{'count':7}{'first line':12}")
 
 for word in words:
     print(f"{word:15}{words[word]['count']:<7}{words[word]['first_line']:<12}")
+
