@@ -1,10 +1,5 @@
-def create_user(firstName, lastName, age=42, **extra):
-    user = dict()
-    user['name'] = firstName
-    user['surname'] = lastName
-    user['age'] = age
-    user['extra'] = extra
-    return user
+def create_user(firstName, lastName, age=42, **extra) -> dict:
+    return {"name": firstName, "surname": lastName, "age": age, "extra": extra}
 
 
 user1 = create_user("John", "Doe")
