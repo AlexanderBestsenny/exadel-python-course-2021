@@ -15,11 +15,11 @@ def collect_leaves(tree_element):
     if isinstance(tree_element, list):
         return tree_element
     if type(tree_element) is dict:
-        result = list()
-        for leave in tree_element:
-            result.extend(collect_leaves(tree_element[leave]))
+        result = []
+        for value in tree_element.values():
+            result.extend(collect_leaves(value))
         return result
-    return list()
+    return []
 
 
 res = collect_leaves(tree)
