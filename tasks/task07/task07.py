@@ -4,8 +4,8 @@ from uuid import UUID
 
 
 class Good:
-    def __init__(self, id, name, price):
-        self._id = id
+    def __init__(self, name, price):
+        self._id = uuid.uuid1()
         self._name = name
         self._price = price
 
@@ -54,13 +54,14 @@ class OrderRepository:
         return list(self.orders.values())[-n_latest:]
 
     def delete(self, order_id: UUID):
-        return self.orders.pop(order_id)
+        self.orders.pop(order_id)
+        print(f'Order deleted id = {order_id}')
 
 
 storage = OrderRepository()
 
-milk = Good(1, 'Milk', 2.45)
-apples = Good(2, 'Red apple', 3.67)
+milk = Good('Milk', 2.45)
+apples = Good('Red apple', 3.67)
 
 order1 = Order(11, [milk, apples])
 assert order1.price == milk.price + apples.price
@@ -75,7 +76,7 @@ storage.add(order2)
 
 print("List", *storage.list(2))
 assert storage.list(2) == [order1, order2]
-print("Delete", storage.delete(order1.orderId))
+storage.delete(order1.orderId)
 print("List", *storage.list(1))
 assert storage.list(2) == [order2]
 
